@@ -12,11 +12,19 @@ function Item({ item, onEdit, onRemove }) {
                 aria-label="Basic example"
                 className="d-flex mt-0 col-sm-auto w-auto"
             >
-                <Button variant="primary" onClick={() => onEdit(id)}>
-                    Edit
+                <Button
+                    variant="outline-primary"
+                    size="sm"
+                    onClick={() => onEdit(id)}
+                >
+                    Редактировать
                 </Button>
-                <Button variant="danger" onClick={() => onRemove(id)}>
-                    Delete
+                <Button
+                    variant="outline-danger"
+                    size="sm"
+                    onClick={() => onRemove(id)}
+                >
+                    Удалить
                 </Button>
             </ButtonGroup>
         </ListGroup.Item>

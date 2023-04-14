@@ -1,6 +1,6 @@
 {
     "homepage": "https://ajoq.github.io/ra-10-redux",
-    "name": "ra-10-redux-10.1-editing",
+    "name": "ra-10-redux",
     "version": "0.1.0",
     "private": true,
     "dependencies": {

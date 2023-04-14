@@ -41,7 +41,7 @@ const itemsReducer = (state = initialState, action) => {
             };
         case EDIT_ITEM:
             const editId = action.payload.id;
-            const editItem = state.items.find((item) => item.id == editId);
+            const editItem = state.items.find((item) => item.id === editId);
             return {
                 ...state,
                 formFields: {
