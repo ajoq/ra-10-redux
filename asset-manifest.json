@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ra-10-redux/static/css/main.c2cab247.css",
+    "main.js": "/ra-10-redux/static/js/main.7e908415.js",
+    "index.html": "/ra-10-redux/index.html",
+    "main.c2cab247.css.map": "/ra-10-redux/static/css/main.c2cab247.css.map",
+    "main.7e908415.js.map": "/ra-10-redux/static/js/main.7e908415.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c2cab247.css",
+    "static/js/main.7e908415.js"
+  ]
+}
