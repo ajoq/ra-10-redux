@@ -74,6 +74,14 @@ const itemsReducer = (state = initialState, action) => {
                 items: state.items.filter(
                     (item) => item.id !== action.payload.id
                 ),
+                formFields:
+                    state.formFields.id !== null
+                        ? {
+                              id: null,
+                              service: '',
+                              price: '',
+                          }
+                        : state.formFields,
             };
         case CHANGE_FORM_FIELDS:
             const { name, value } = action.payload;
