@@ -34,7 +34,7 @@ export const changeFormFields = (name, value) => ({
     payload: { name, value },
 });
 
-export const filter = (text) => ({
+export const filter = (text, items) => ({
     type: FILTER,
-    payload: { text },
+    payload: { text, items },
 });

@@ -7,7 +7,7 @@ function Filter({ onFilter, filterText }) {
             onSubmit={(evt) => evt.preventDefault()}
         >
             <Form.Group className="md-12 pt-4" controlId="search">
-                <Form.Label>Поиск</Form.Label>
+                <Form.Label>Фильтр</Form.Label>
                 <Form.Control
                     type="text"
                     name="search"

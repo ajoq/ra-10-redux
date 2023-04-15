@@ -14,9 +14,8 @@ import ItemsList from './ItemsList';
 
 function Main() {
     const dispatch = useDispatch();
-    const { items, formFields, filteredItems, filterText } = useSelector(
-        (state) => state.services
-    );
+    const { items, formFields } = useSelector((state) => state.services);
+    const { filteredItems, filterText } = useSelector((state) => state.filter);
     const [data, setData] = useState(items);
 
     const handleFormChange = (evt) => {
@@ -44,7 +43,7 @@ function Main() {
 
     const handleFilter = (evt) => {
         const { value } = evt.target;
-        dispatch(filter(value));
+        dispatch(filter(value, items));
     };
 
     useEffect(() => {
@@ -52,7 +51,7 @@ function Main() {
     }, [filterText, filteredItems]);
 
     useEffect(() => {
-        dispatch(filter(filterText));
+        dispatch(filter(filterText, items));
     }, [items]);
 
     return (
