@@ -4,6 +4,7 @@ import {
     CHANGE_ITEM,
     DELETE_ITEM,
     CHANGE_FORM_FIELDS,
+    FILTER,
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -18,6 +19,8 @@ const initialState = {
         service: '',
         price: '',
     },
+    filteredItems: [],
+    filterText: '',
 };
 
 const itemsReducer = (state = initialState, action) => {
@@ -80,6 +83,15 @@ const itemsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 formFields: { ...state.formFields, [name]: value },
+            };
+        case FILTER:
+            const { text } = action.payload;
+            return {
+                ...state,
+                filteredItems: state.items.filter((item) =>
+                    item.service.toLowerCase().includes(text.toLowerCase())
+                ),
+                filterText: text,
             };
         default:
             return state;

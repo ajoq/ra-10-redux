@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     addItem,
@@ -5,13 +6,18 @@ import {
     changeItem,
     deleteItem,
     changeFormFields,
+    filter,
 } from '../redux/actions/actionCreators';
 import AddItem from './AddItem';
+import Filter from './Filter';
 import ItemsList from './ItemsList';
 
 function Main() {
     const dispatch = useDispatch();
-    const { items, formFields } = useSelector((state) => state.services);
+    const { items, formFields, filteredItems, filterText } = useSelector(
+        (state) => state.services
+    );
+    const [data, setData] = useState(items);
 
     const handleFormChange = (evt) => {
         const { name, value } = evt.target;
@@ -36,6 +42,19 @@ function Main() {
         dispatch(deleteItem(id));
     };
 
+    const handleFilter = (evt) => {
+        const { value } = evt.target;
+        dispatch(filter(value));
+    };
+
+    useEffect(() => {
+        filterText !== '' ? setData(filteredItems) : setData(items);
+    }, [filterText, filteredItems]);
+
+    useEffect(() => {
+        dispatch(filter(filterText));
+    }, [items]);
+
     return (
         <>
             <AddItem
@@ -43,8 +62,9 @@ function Main() {
                 onFormChange={handleFormChange}
                 onAddItem={handleAddItem}
             />
+            <Filter inputData={filterText} onFilter={handleFilter} />
             <ItemsList
-                items={items}
+                items={data}
                 onEditClick={handleEditClick}
                 onRemoveClick={handleRemoveClick}
             />

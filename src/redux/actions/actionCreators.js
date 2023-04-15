@@ -4,6 +4,7 @@ import {
     CHANGE_ITEM,
     DELETE_ITEM,
     CHANGE_FORM_FIELDS,
+    FILTER,
 } from './actionTypes';
 
 export const addItem = (service, price) => {
@@ -31,4 +32,9 @@ export const deleteItem = (id) => ({
 export const changeFormFields = (name, value) => ({
     type: CHANGE_FORM_FIELDS,
     payload: { name, value },
+});
+
+export const filter = (text) => ({
+    type: FILTER,
+    payload: { text },
 });
